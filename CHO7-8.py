@@ -5,16 +5,15 @@ def validate_name(name):
         return False
 
 def validate_pan(pan):
-    if pan.isalnum() and len(pan) == 10:
-        return True
-    else:
-        return False
+    return len(pan) == 10 and pan[:5].isalpha() and pan[5:9].isdigit() and pan[9].isalpha()
+
 
 def generate_abecedarian():
     abecedarian_series = ""
-    for char in range(97, 123):
+    for char in range(ord('a'), ord('z')+1):
         abecedarian_series += chr(char)
         print(abecedarian_series)
+
 
 def find_character_index(string, char):
     for i in range(len(string)):
